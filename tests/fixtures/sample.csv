@@ -1,0 +1,11 @@
+language_code,language_name,language_synonym,approximate_latitude_of_language_variety,approximate_longitude_of_language_variety,uri,state_territory
+T001,Test Alpha,Alfa|Test Alfa,-31.95,115.86,https://example.org/T001,WA
+T002,Test Bravo,,-31.99,115.80,https://example.org/T002,WA
+T003,Test Charlie,Charly,-33.87,151.21,https://example.org/T003,NSW
+T004,Test Delta,,,,https://example.org/T004,NT
+T005,Test Echo,,-50.0,115.0,https://example.org/T005,WA
+T001,Duplicate Alpha,,-12.0,130.0,https://example.org/dup,NT
+,No Code,,-20.0,130.0,,NT
+T006,,,-20.0,130.0,,NT
+T007,Test Foxtrot," Fox , Foxy ",-12.46,130.84,https://example.org/T007,NT
+T008,Test Golf,,-24.0,134.0,https://example.org/T008,NT
