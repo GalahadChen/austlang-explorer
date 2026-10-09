@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 600" width="1040" height="600" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a4540"/>
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#4a4540;stroke-width:1.5;rx:8}
+      .ext{fill:#eef2f7;stroke:#1d4e89;stroke-width:1.5}
+      .alg{fill:#fbefe9;stroke:#b5532c;stroke-width:1.5}
+      .t{font-size:14px;font-weight:bold;fill:#2b2622}
+      .s{font-size:11.5px;fill:#5a534c}
+      .l{stroke:#4a4540;stroke-width:1.5;fill:none;marker-end:url(#arr)}
+      .dl{stroke:#8a837c;stroke-width:1.3;fill:none;stroke-dasharray:5 4;marker-end:url(#arr)}
+      .lab{font-size:11px;fill:#4a4540;font-style:italic}
+    </style>
+  </defs>
+  <rect width="1040" height="600" fill="#fbf8f3"/>
+  <text x="20" y="32" font-size="20" font-weight="bold" fill="#2b2622">AUSTLANG Explorer: architecture and data flow</text>
+
+  <!-- deployment boundary -->
+  <rect x="200" y="58" width="620" height="510" rx="12" fill="none" stroke="#5b7f3a" stroke-width="1.5" stroke-dasharray="8 5"/>
+  <text x="212" y="78" font-size="12" fill="#5b7f3a" font-weight="bold">Streamlit Community Cloud (deployed from GitHub)</text>
+
+  <!-- external source -->
+  <rect class="ext" x="20" y="100" width="160" height="70" rx="8"/>
+  <text class="t" x="34" y="125" style="font-size:12.5px">AIATSIS / data.gov.au</text>
+  <text class="s" x="34" y="144">AUSTLANG CSV</text>
+  <text class="s" x="34" y="160">CC BY 4.0</text>
+
+  <!-- fetch script -->
+  <rect class="box" x="20" y="230" width="160" height="62" rx="8"/>
+  <text class="t" x="34" y="255">fetch_data.py</text>
+  <text class="s" x="34" y="274">run once by developer</text>
+  <path class="dl" d="M100,170 L100,228"/>
+  <text class="lab" x="106" y="204">HTTPS download</text>
+
+  <!-- csv -->
+  <rect class="box" x="230" y="100" width="170" height="70" rx="8"/>
+  <text class="t" x="244" y="125">data/austlang.csv</text>
+  <text class="s" x="244" y="144">committed to the repo</text>
+  <text class="s" x="244" y="160">raw records</text>
+  <path class="dl" d="M180,250 C205,250 205,140 228,140"/>
+
+  <!-- loader -->
+  <rect class="box" x="230" y="230" width="170" height="92" rx="8"/>
+  <text class="t" x="244" y="255">data_loader.py</text>
+  <text class="s" x="244" y="274">read CSV, drop blank and</text>
+  <text class="s" x="244" y="290">duplicate records, validate</text>
+  <text class="s" x="244" y="306">coordinates, check 200+</text>
+  <path class="l" d="M315,170 L315,228"/>
+
+  <!-- dataframe -->
+  <rect class="box" x="230" y="380" width="170" height="70" rx="8"/>
+  <text class="t" x="244" y="405">Clean DataFrame</text>
+  <text class="s" x="244" y="424">cached in memory</text>
+  <text class="s" x="244" y="440">(st.cache_data)</text>
+  <path class="l" d="M315,322 L315,378"/>
+
+  <!-- algorithm modules -->
+  <rect class="alg" x="450" y="110" width="170" height="80" rx="8"/>
+  <text class="t" x="464" y="135">geo.py</text>
+  <text class="s" x="464" y="154">haversine distance,</text>
+  <text class="s" x="464" y="170">k-nearest (heap), radius</text>
+
+  <rect class="alg" x="450" y="250" width="170" height="80" rx="8"/>
+  <text class="t" x="464" y="275">search.py</text>
+  <text class="s" x="464" y="294">normalise, Levenshtein,</text>
+  <text class="s" x="464" y="310">score names + synonyms</text>
+
+  <rect class="alg" x="450" y="390" width="170" height="80" rx="8"/>
+  <text class="t" x="464" y="415">analysis.py</text>
+  <text class="s" x="464" y="434">summary stats, zones,</text>
+  <text class="s" x="464" y="450">synonym bins, grid density</text>
+
+  <path class="l" d="M400,415 C425,415 425,150 448,150"/>
+  <path class="l" d="M400,415 C428,415 428,290 448,290"/>
+  <path class="l" d="M400,425 L448,428"/>
+
+  <!-- app -->
+  <rect class="box" x="660" y="110" width="140" height="360" rx="8"/>
+  <text class="t" x="674" y="136">app.py</text>
+  <text class="s" x="674" y="154">Streamlit UI</text>
+  <line x1="672" y1="166" x2="788" y2="166" stroke="#ccc4ba"/>
+  <text class="s" x="674" y="190">• Overview</text>
+  <text class="s" x="674" y="212">• Search languages</text>
+  <text class="s" x="674" y="234">• Languages near</text>
+  <text class="s" x="686" y="250">a place</text>
+  <text class="s" x="674" y="272">• About the data</text>
+  <line x1="672" y1="290" x2="788" y2="290" stroke="#ccc4ba"/>
+  <text class="s" x="674" y="312">validates input,</text>
+  <text class="s" x="674" y="328">shows errors as</text>
+  <text class="s" x="674" y="344">messages, draws</text>
+  <text class="s" x="674" y="360">Plotly charts/maps</text>
+
+  <path class="l" d="M620,150 L658,150"/>
+  <path class="l" d="M620,290 L658,290"/>
+  <path class="l" d="M620,430 L658,430"/>
+  <text class="lab" x="626" y="140">results</text>
+
+  <!-- user -->
+  <rect class="ext" x="860" y="230" width="160" height="80" rx="8"/>
+  <text class="t" x="874" y="256">User's browser</text>
+  <text class="s" x="874" y="276">no login, nothing</text>
+  <text class="s" x="874" y="292">stored</text>
+  <path class="l" d="M858,258 L802,258"/>
+  <path class="l" d="M802,284 L858,284"/>
+  <text class="lab" x="808" y="250">query</text>
+  <text class="lab" x="808" y="300">page</text>
+
+  <!-- tests -->
+  <rect class="box" x="860" y="430" width="160" height="80" rx="8" style="stroke-dasharray:4 3"/>
+  <text class="t" x="874" y="455">tests/ (pytest)</text>
+  <text class="s" x="874" y="474">16 tests on loader,</text>
+  <text class="s" x="874" y="490">algorithms, analysis</text>
+  <path class="dl" d="M860,470 C760,520 660,520 622,460"/>
+
+  <!-- legend -->
+  <rect class="alg" x="20" y="470" width="18" height="14"/><text class="s" x="46" y="482">algorithm / analysis</text>
+  <rect class="ext" x="20" y="494" width="18" height="14"/><text class="s" x="46" y="506">outside the app</text>
+  <line x1="20" y1="525" x2="40" y2="525" class="l"/><text class="s" x="46" y="529">runtime data flow</text>
+  <line x1="20" y1="547" x2="40" y2="547" class="dl"/><text class="s" x="46" y="551">offline / development</text>
+</svg>
